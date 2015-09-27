@@ -1,0 +1,30 @@
+{%extends 'notes/base.html'%}
+{%block title%}
+    Note - {{object.title}}
+{%endblock%}
+{%block content%}
+<style>
+.container {
+    background-color:black;
+    color:white;
+    width:100%;
+    height:100%;
+} 
+</style>
+    <div class="container">
+        <h1>Player Name:</h1> 
+        <p>{{object.title}}</p>
+        <h1>Description:</h1>
+        <p>{{object.content}}</p>
+        <h1>Latest Achievement:</h1>
+        <p>{{object.Achievements}}</p>
+        <h1>Sponsored by:</h1>
+        <p>{{object.Sponsor}}</p>
+        <h2>Games Played:</h2>
+        <ul>
+        {%for t in object.Games.all%}
+                    <li>{{t.title}}</li>
+                {%endfor%}
+                </ul>
+    </div>
+{%endblock%}

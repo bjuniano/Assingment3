@@ -1,0 +1,28 @@
+{%extends 'notes/base.html'%}
+{%load staticfiles%}
+
+{%block content%}
+<div class="container">
+    <link rel="stylesheet" type="text/css" href="{% static 'notes/style.css' %}" />
+    <h2>FaZebook: Home of the MLG</h2>
+
+    {% if object_list  %}
+        {% for note in object_list  %}
+            <a href={%url 'note_update' note.id %}>
+                <div class="shrek">
+                
+                    <br>
+                    <u>{{note.title}}</u>
+                    <br>
+                    {{note.content}}
+                </div>
+            </a>
+        {% endfor %}
+    {% else %}
+        <p>No Players are registered yet.</p>
+    {% endif %}
+</div>
+<h1> Brought to you by:</h1>
+<img src = "https://silversporknews.files.wordpress.com/2015/02/doritos-nacho-cheese.gif">
+<img src = "http://img3.wikia.nocookie.net/__cb20140727190433/mountaindew/images/9/91/Mdbottle_zps52ac0b35.png">
+{%endblock%}
